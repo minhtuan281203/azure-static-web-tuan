@@ -11,7 +11,15 @@
 <body>
   <main>
     <h1>Vanilla JavaScript App Ok</h1>
+    <p>Loading content API: <b id="name">...</b></p>
   </main>
+
+  <script>
+    (async function() {
+      const { text } = await(await fetch(`/api/message`)).json();
+      document.querySelector('#name').textContent = text;
+    }());
+  </script>
 </body>
 <!-- an F1 open command palette -->
 <!-- step1:  -->
